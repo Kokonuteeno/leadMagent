@@ -1,7 +1,16 @@
-import DisciplineTracker from './components/DisciplineTracker';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import DisciplineTracker from './components/DisciplineTracker'
 
 function App() {
-  return <DisciplineTracker />;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/reset" element={<DisciplineTracker />} />
+        <Route path="/" element={<Navigate to="/reset" replace />} />
+        <Route path="*" element={<Navigate to="/reset" replace />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
